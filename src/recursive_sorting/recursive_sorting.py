@@ -29,14 +29,32 @@ def merge_sort( arr ):
 # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
     # TO-DO
-
+    print(arr, start, mid, end)
+    left = arr[start:mid]
+    right = arr[mid:end]
+    i = j = 0
+    k = start 
+    for l in range(k, end):
+      if j >= len(right) or (i < len(left) and left[i] < right[j]):
+        arr[l] = left[i]
+        i += 1
+      else:
+        arr[l] = right[j]
+        j += 1  
     return arr
 
 def merge_sort_in_place(arr, l, r): 
     # TO-DO
+    #print(arr, l, r)
+    if len(arr) > 1:
+      mid = l + r // 2
+      merge_sort_in_place(arr, l, mid)
+      merge_sort_in_place(arr, mid, r)
+      merge_in_place(arr, l, mid, r)
+    
 
-    return arr
-
+arr1 = [1, 5, 8, 4, 2, 9, 6, 0, 3, 7]
+merge_sort_in_place(arr1, 0, len(arr1) - 1)
 
 # STRETCH: implement the Timsort function below
 # hint: check out https://github.com/python/cpython/blob/master/Objects/listsort.txt
