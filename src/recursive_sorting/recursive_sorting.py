@@ -46,8 +46,8 @@ def merge_in_place(arr, start, mid, end):
 def merge_sort_in_place(arr, l, r): 
     # TO-DO
     #print(arr, l, r)
-    if len(arr) > 1:
-      mid = l + r // 2
+    if r - 1 > 1:
+      mid = (l + r) // 2
       merge_sort_in_place(arr, l, mid)
       merge_sort_in_place(arr, mid, r)
       merge_in_place(arr, l, mid, r)

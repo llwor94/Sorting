@@ -18,18 +18,17 @@ def binary_search(arr, target):
   high = len(arr) - 1 
   index = 0
   while True:
-    index = (high - low) // 2 
+    index = (high + low) // 2 
     if arr[index] == target:
       return index
     elif arr[index] > target:
       high = index
     elif arr[index] < target:
       low = index
-  # TO-DO: add missing code
 
   return -1 # not found
 
-
+print(binary_search([1, 2, 3, 4, 78, 1003, 110002], 3))
 # STRETCH: write a recursive implementation of Binary Search 
 def binary_search_recursive(arr, target, low, high):
   
